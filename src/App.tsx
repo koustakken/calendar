@@ -1,17 +1,20 @@
 import React from 'react';
-// styles
+
+import { Calendar } from './components';
+import { formatDate } from './utils/helpers/date';
+
 import './static/css/global.css';
 
-//components
-import { Calendar } from './components/Calendar/Calendar';
-
 export const App: React.FC = () => {
-	
-	const [selectedDate, selectDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDay] = React.useState(new Date());
 
-	return (
-		<div className='app__container'><Calendar selectDate={selectDate} selectedDate={selectedDate} /></div>
-	)
-}
+  return (
+    <div className='app__container'>
+      <div className='date__container'>{formatDate(selectedDate, 'DDD DD MMM YYYY')}</div>
+
+      <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)} />
+    </div>
+  );
+};
 
 export default App;

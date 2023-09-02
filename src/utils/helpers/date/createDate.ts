@@ -2,7 +2,7 @@ import { getWeekNumber } from './getWeekNumber';
 
 interface CreateDateParams {
 	locale?: string;
-	date: Date | undefined;
+	date?: Date;
 }
 
 export const createDate = (params?: CreateDateParams) => {
